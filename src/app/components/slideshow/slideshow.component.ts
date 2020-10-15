@@ -1,4 +1,4 @@
-import { AfterContentInit, AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { Movie } from 'src/app/interfaces/cartelera-response';
 import Swiper from 'swiper';
 
