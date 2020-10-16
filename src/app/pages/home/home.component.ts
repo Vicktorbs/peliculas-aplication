@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, OnDestroy } from '@angular/core';
 import { Movie } from 'src/app/interfaces/cartelera-response';
 import { PeliculasService } from 'src/app/services/peliculas.service';
 
@@ -7,7 +7,7 @@ import { PeliculasService } from 'src/app/services/peliculas.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
 
   public movies: Movie[] = []
   public moviesSlideShow: Movie[] = []
@@ -35,6 +35,10 @@ export class HomeComponent implements OnInit {
       this.moviesSlideShow = movies;
     })
   
+  }
+
+  ngOnDestroy() {
+    this.peliculasServices.resetCarteleraPage()
   }
 
 }
